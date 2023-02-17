@@ -18,6 +18,7 @@ export const CartContentOverview = styled.p`
   width: 100%;
   color: black;
   font-size: 18px;
+  padding: 10px 0;
 `;
 export const CartSpan = styled.span`
   font-weight: 700;

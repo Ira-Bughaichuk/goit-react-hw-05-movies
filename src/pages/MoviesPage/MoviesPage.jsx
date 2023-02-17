@@ -5,6 +5,7 @@ import { getSearch } from 'services/filmsAPI';
 import SearchIcon from '@mui/icons-material/Search';
 import { StyledLi } from '../../components/MovieList/MovieList.styled';
 import { StyledLink } from '../../components/MovieList/MovieList.styled';
+import { toast } from 'react-toastify';
 
 import {
   SearchForm,
@@ -12,7 +13,7 @@ import {
   SearchFormButton,
 } from './MoviePage.styled';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   const location = useLocation();
   const [searchFilms, setSearchFilms] = useState([]);
 
@@ -43,7 +44,9 @@ export const MoviesPage = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (query.trim() === '') {
-      alert('Ведіть назву');
+      toast.error('Enter the title of the movie', {
+        position: 'top-center',
+      });
       return;
     }
     setSearchParams(query !== '' ? { name: query } : {}); //змінюємо запис юрл строки
@@ -78,3 +81,5 @@ export const MoviesPage = () => {
     </>
   );
 };
+
+export default MoviesPage;

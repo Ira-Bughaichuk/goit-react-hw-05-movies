@@ -5,7 +5,7 @@ import { getReviews } from 'services/filmsAPI';
 
 import { ReviewLi, ReviewSpan } from './Reviews.styles';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
 
@@ -36,3 +36,5 @@ export const Reviews = () => {
     </ul>
   );
 };
+
+export default Reviews;

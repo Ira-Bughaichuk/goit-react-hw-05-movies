@@ -4,6 +4,7 @@ export const CastUl = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-evenly;
+  margin: 20px 0;
 `;
 export const CastLi = styled.li`
   list-style: none;

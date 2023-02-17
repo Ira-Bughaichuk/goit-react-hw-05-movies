@@ -3,7 +3,8 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { getFilmById } from 'services/filmsAPI';
 import { Outlet } from 'react-router-dom';
-
+import { Suspense } from 'react';
+import Loader from 'components/Loader/Loader';
 import {
   Cart,
   CartImg,
@@ -14,7 +15,7 @@ import {
   StyledliBtns,
 } from './MovieDetailPages.styled';
 
-export const MovieDetailPages = () => {
+const MovieDetailPages = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
@@ -47,9 +48,11 @@ export const MovieDetailPages = () => {
         />
         <CartContent>
           <h2>{title}</h2>
-          <CartContentOverview>Overview {overview}</CartContentOverview>
+          <CartContentOverview>
+            <CartSpan>Overview:</CartSpan> {overview}
+          </CartContentOverview>
           <p>
-            <CartSpan>Genre:</CartSpan>{' '}
+            <CartSpan>Genre:</CartSpan>
             {genres.map(item => item.name).join(' ')}
           </p>
         </CartContent>
@@ -62,7 +65,11 @@ export const MovieDetailPages = () => {
           <LinkButton to="review">Reviews</LinkButton>
         </StyledliBtns>
       </div>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
+
+export default MovieDetailPages;

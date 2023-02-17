@@ -1,4 +1,6 @@
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+import Loader from 'components/Loader/Loader';
 import {
   StyledNavLink,
   LayoutLi,
@@ -21,9 +23,11 @@ export const SharedLoyaut = () => {
           </Styledul>
         </nav>
       </StyledHeader>
-      <main className="container">
-        <Outlet />
-      </main>
+      <Suspense fallback={<Loader />}>
+        <main className="container">
+          <Outlet />
+        </main>
+      </Suspense>
     </>
   );
 };

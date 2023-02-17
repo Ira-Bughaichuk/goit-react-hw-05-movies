@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getCredits } from 'services/filmsAPI';
 
 import { CastLi, CastUl, CastName, CastImg } from './Cast.styled';
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState(null);
 
@@ -38,3 +38,5 @@ export const Cast = () => {
     </CastUl>
   );
 };
+
+export default Cast;

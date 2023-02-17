@@ -5,7 +5,7 @@ import { getTrendingFilms } from 'services/filmsAPI';
 import { MovieList } from 'components/MovieList/MovieList';
 import { useLocation } from 'react-router-dom';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [films, setFilms] = useState([]);
   const location = useLocation();
 
@@ -13,7 +13,6 @@ export const HomePage = () => {
     const fetchTrendingFilms = async () => {
       try {
         const response = await getTrendingFilms();
-        //console.log(response.results);
         setFilms(response.results);
       } catch (error) {
         alert(error.message);
@@ -21,7 +20,7 @@ export const HomePage = () => {
     };
 
     fetchTrendingFilms();
-  }, [films]);
+  }, []);
   const backLinkHrefHome = location.state?.from ?? '/';
   return (
     <ul>
@@ -31,3 +30,5 @@ export const HomePage = () => {
     </ul>
   );
 };
+
+export default HomePage;

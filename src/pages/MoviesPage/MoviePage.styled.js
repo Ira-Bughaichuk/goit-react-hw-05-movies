@@ -27,7 +27,6 @@ export const SearchFormInput = styled.input`
   }
 `;
 export const SearchFormButton = styled.button`
-  display: inline-block;
   width: 200px;
   height: 48px;
   border: 0;
@@ -44,7 +43,8 @@ export const SearchFormButton = styled.button`
     opacity: 1;
   }
   background-color: #42f2f5;
+  display: inline-flex;
   gap: 10px;
-  align-content: center;
   align-items: center;
+  justify-content: center;
 `;

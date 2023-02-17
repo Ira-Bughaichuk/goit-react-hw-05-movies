@@ -1,4 +1,4 @@
-import axios, { Axios } from 'axios';
+import axios from 'axios';
 
 const trendingFilms = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
